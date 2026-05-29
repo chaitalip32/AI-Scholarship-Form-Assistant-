@@ -7,7 +7,7 @@ DATABASE_URL="postgresql://postgres:abc@localhost:5432/scholarship_ai"
 engine=create_engine(DATABASE_URL)
 
 SessionLocal=sessionmaker(
-    autocomplete=False,
+    autocommit=False,
     autoflush=False,
     bind=engine
 )
