@@ -3,10 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import engine,Base
 
 from app.models import *
-from app.routers import auth_router
+from app.routers import auth_router, upload_router
 
 app=FastAPI()
 
+app.include_router(auth_router.router)
+app.include_router(upload_router.router)
 Base.metadata.create_all(bind=engine) #Creates tables automatically in PostgreSQL.
 
 origins=[
